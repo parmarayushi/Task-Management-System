@@ -21,5 +21,10 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
   ],
+  exports:[
+    SidebarComponent,
+    HeaderComponent,
+    MasterComponent
+  ]
 })
 export class CoreModule { }

@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MasterComponent implements OnInit {
 
-  constructor() { }
+  public isSidebarOpen: boolean;
+  constructor() {
+    this.isSidebarOpen = false;
+  }
 
   ngOnInit(): void {
   }
