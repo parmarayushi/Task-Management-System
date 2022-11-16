@@ -4,8 +4,9 @@ import { LoginContainerComponent } from './core/components/login-container/login
 
 const routes: Routes = [
   {
-    path:"",component:LoginContainerComponent
-  }
+    path:"login",component:LoginContainerComponent
+  },
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 
 @NgModule({
