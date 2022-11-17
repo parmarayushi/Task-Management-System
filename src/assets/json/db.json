@@ -1,12 +1,32 @@
 {
-    "user": [
-        {
-          "email": "admin123@gmail.com",
-          "password": "admin@123"
-        },
-        {
-          "email": "ayushi123@gmail.com",
-          "password": "ayushi@123"
-        }
-      ]
+  "user": [
+    {
+      "email": "admin123@gmail.com",
+      "password": "admin@123"
+    },
+    {
+      "email": "ayushi123@gmail.com",
+      "password": "ayushi@123"
+    }
+  ],
+  "employee": [
+    {
+      "firstName": "Ayushi",
+      "lastName": "Parmar",
+      "city": "Valsad",
+      "email": "ayushiparmar@gmail.com",
+      "id": 1
+    },
+    {
+      "firstName": "sdfsd",
+      "lastName": "dsf",
+      "city": "dfsdf",
+      "email": "ds@gmail.com",
+      "password": {
+        "password": "Admin@123",
+        "confirmPassword": "Admin@123"
+      },
+      "id": 2
+    }
+  ]
 }

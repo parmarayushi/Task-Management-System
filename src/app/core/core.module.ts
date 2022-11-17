@@ -6,6 +6,7 @@ import { MasterComponent } from './components/master/master.component';
 import { SidebarComponent } from './components/master/sidebar/sidebar.component';
 import { HeaderComponent } from './components/master/header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     SharedModule,
   ],
   exports:[

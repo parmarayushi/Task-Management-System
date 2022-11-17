@@ -1,1 +1,11 @@
 // Form controls styles goes here
+.form-width{
+    width: 100%;
+
+    @include media-breakpoint-up(sm){
+        width: 75%;
+    }
+    @include media-breakpoint-up(xl){
+        width: 50%;
+    }
+}

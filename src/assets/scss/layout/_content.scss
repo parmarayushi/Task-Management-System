@@ -1,3 +1,7 @@
 .login-form{
     background-color: $ternary;
 }
+
+.eye-icon {
+    @include position(absolute, 2.1rem, 0.6rem)
+}
