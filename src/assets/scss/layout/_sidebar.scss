@@ -1,72 +1,3 @@
-.sidebar {
-    flex: 0 0 $sidebar-width;
-    width: $sidebar-width;
-    background-color: $secondary;
-    transition: all 0.5s ease-in-out;
-
-    @include media-breakpoint-down(md) {
-        flex: 0 0 50%;
-        width: 50%;
-        z-index: 99;
-        @include position(absolute,0,auto,auto,-100%);
-    }
-
-    @media (max-width: 320px) {
-        flex: 0 0 100%;
-        width: 100%;
-    }
-
-    .user-email {
-        font-size: 0.7rem;
-    }
-}
-
-.profile {
-    border-bottom: $border-size solid $white;
-}
-
-.close {
-    top: 25px;
-    right: 30px;
-    z-index: 99;
-    display: none;
-    
-    @include media-breakpoint-down(md) {
-        display: block;
-    }
-}
-
-.isBooleanSidebar{
-    @include media-breakpoint-down(md){
-        display: block;
-    }
-    @include media-breakpoint-up(md){
-        display: none;
-    }
-}
-.simpleSidebar{
-    @include media-breakpoint-up(md){
-        display: block;
-    }
-    @include media-breakpoint-down(md){
-        display: none;
-    }
-
-}
-
-.nav {
-    &-link {
-        &.active {
-            background-color: $primary;
-        }
-
-        &:hover {
-            background-color: $primary;
-            font-weight: bold;
-        }
-    }
-}
-
 #menu {
     display: none;
 
@@ -86,9 +17,76 @@
                 }
             }
 
-            @media (max-width:320px){
+            @media (max-width:475px) {
                 width: 100%;
             }
+        }
+    }
+}
+
+.sidebar {
+    flex: 0 0 $sidebar-width;
+    width: $sidebar-width;
+    background-color: $secondary;
+    transition: all 0.5s ease-in-out;
+
+    @include media-breakpoint-down(md) {
+        flex: 0 0 50%;
+        width: 50%;
+        z-index: 99;
+        @include position(absolute, 0, auto, auto, -100%);
+    }
+
+    .user-email {
+        font-size: 0.7rem;
+    }
+}
+
+.profile {
+    border-bottom: $border-size solid $white;
+}
+
+.close {
+    top: 25px;
+    right: 30px;
+    z-index: 99;
+    display: none;
+
+    @include media-breakpoint-down(md) {
+        display: block;
+    }
+}
+
+.isBooleanSidebar {
+    @include media-breakpoint-down(md) {
+        display: block;
+    }
+
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+}
+
+.simpleSidebar {
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+
+}
+
+.nav {
+    &-link {
+        &.active {
+            background-color: $primary;
+        }
+
+        &:hover {
+            background-color: $primary;
+            font-weight: bold;
         }
     }
 }
