@@ -49,7 +49,10 @@ export class EmployeeListPresentationComponent implements OnInit {
 
   private _employeeList: Employees[];
 
-  constructor(private utilityService: UtilitiesService) {
+  constructor(
+    private utilityService: UtilitiesService,
+    private employeePresenter:EmployeeListPresenterService
+    ) {
     this.isTableView = false;
     this.isCardView = false;
     this.searchText = "";
@@ -58,6 +61,10 @@ export class EmployeeListPresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.onResize(event);
+
+    this.employeePresenter.deleteData$.subscribe((res)=>{
+      this.delete.emit(res);
+    })
 
     this.utilityService.searchData$.subscribe((res) => {
       this._employeeList = res
@@ -70,7 +77,7 @@ export class EmployeeListPresentationComponent implements OnInit {
   * @description deletes the on click.
   */
   public onDelete(id: number) {
-    this.delete.emit(id);
+    this.employeePresenter.deletePopUp(id);
   }
 
   /**

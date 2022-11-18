@@ -7,14 +7,13 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
 
 @NgModule({
   declarations: [
-  
     SearchPipe,
-       DeletePopupComponent
+    DeletePopupComponent
   ],
   imports: [
     CommonModule,
   ],
-  exports:[
+  exports: [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
