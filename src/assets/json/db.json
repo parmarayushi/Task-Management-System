@@ -1,12 +1,120 @@
 {
-    "user": [
-        {
-          "email": "admin123@gmail.com",
-          "password": "admin@123"
-        },
-        {
-          "email": "ayushi123@gmail.com",
-          "password": "ayushi@123"
-        }
-      ]
+  "user": [
+    {
+      "email": "admin123@gmail.com",
+      "password": "admin@123"
+    },
+    {
+      "email": "ayushi123@gmail.com",
+      "password": "ayushi@123"
+    }
+  ],
+  "employee": [
+    {
+      "firstName": "Jigar",
+      "lastName": "Bhanushali",
+      "city": "Valsad",
+      "email": "jigar.bhanushali@gmail.com",
+      "id": 1
+    },
+    {
+      "firstName": "Pooja",
+      "lastName": "Maanvani",
+      "city": "Valsad",
+      "email": "pooja.manvani@gmail.com",
+      "password": "pooja@123",
+      "confirmPassword": "pooja@123",
+      "id": 2
+    },
+    {
+      "firstName": "Mrunal",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "mrunal.patel@gmail.com",
+      "password": "mrunal@123",
+      "confirmPassword": "mrunal@123",
+      "id": 3
+    },
+    {
+      "firstName": "Viral",
+      "lastName": "Patel",
+      "city": "Dungri",
+      "email": "viral.patel@gmail.com",
+      "password": "viral@123",
+      "confirmPassword": "viral@123",
+      "id": 4
+    },
+    {
+      "firstName": "Mehul",
+      "lastName": "Patel",
+      "city": "Atgam",
+      "email": "mehul.patel@gmail.com",
+      "password": "mehul@123",
+      "confirmPassword": "mehul@123",
+      "id": 5
+    },
+    {
+      "firstName": "Aman",
+      "lastName": "Patel",
+      "city": "Vapi",
+      "email": "aman.patel@gmail,com",
+      "password": "aman@123",
+      "confirmPassword": "aman@123",
+      "id": 6
+    },
+    {
+      "firstName": "Tanmay",
+      "lastName": "Patel",
+      "city": "Surat",
+      "email": "tanmay,patel@gmail.com",
+      "password": "tanmay@123",
+      "confirmPassword": "tanmay@123",
+      "id": 7
+    },
+    {
+      "firstName": "Aayushi",
+      "lastName": "Parmar",
+      "city": "Valsad",
+      "email": "aayushi.parmar@gmail.com",
+      "password": "aayushi@123",
+      "confirmPassword": "aayushi@123",
+      "id": 8
+    },
+    {
+      "firstName": "Tanmay",
+      "lastName": "Patel",
+      "city": "Surat",
+      "email": "tanmay,patel@gmail.com",
+      "password": "tanmay@123",
+      "confirmPassword": "tanmay@123",
+      "id": 9
+    },
+    {
+      "firstName": "Viral",
+      "lastName": "Patel",
+      "city": "Dungri",
+      "email": "viral.patel@gmail.com",
+      "password": "viral@123",
+      "confirmPassword": "viral@123",
+      "id": 10
+    },
+    {
+      "firstName": "Pooja",
+      "lastName": "Maanvani",
+      "city": "Valsad",
+      "email": "pooja.manvani@gmail.com",
+      "password": "pooja@123",
+      "confirmPassword": "pooja@123",
+      "id": 11
+    },
+    {
+      "firstName": "Mrunal",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "mrunal.patel@gmail.com",
+      "password": "mrunal@123",
+      "confirmPassword": "mrunal@123",
+      "id": 12
+    }
+  ]
 }

@@ -1,0 +1,202 @@
+<div class="wrapper h-100 overflow-hidden d-flex flex-column">
+    <!-- Header -->
+    <h2 class="border-bottom border-primary text-center pb-3 mb-0">{{formTitle}}</h2>
+
+    <!-- Start: User Form -->
+    <form class="rounded shadow-sm bg-white p-4 mt-3 mt-sm-4 form-width  m-sm-auto overflow-auto" [formGroup]="employeeForm">
+        <!-- Start: Success Message -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </symbol>
+        </svg>
+        <div class="alert alert-success d-flex align-items-center" *ngIf="successMsg">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            Employee Added Successfully.
+        </div>
+        <div class="alert alert-success d-flex align-items-center" *ngIf="updateMsg">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            Employee Updated Successfully.
+        </div>
+        <!-- End: Success Message -->
+
+        <div class="">
+            <section class=" ">
+                <!-- Start: First Name Field -->
+                <div class="pb-3">
+                    <label for="firstName" class="fw-bold">First Name</label>
+                    <small *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
+                    <input type="text" class="form-control" formControlName="firstName">
+
+                    <!-- Start: Firstname Field Validation -->
+                    <div *ngIf="getControls['firstName'].touched && getControls['firstName'].errors || formSubmitted">
+                        <small *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']"
+                            class="text-danger">
+                            firstName is required.
+                        </small>
+                        <small *ngIf="getControls['firstName']?.errors?.['pattern'] " class="text-danger">
+                            Invalid First Name.
+                        </small>
+                    </div>
+                    <!-- End: Firstname Field Validation -->
+                </div>
+                <!-- End: First Name Field -->
+
+                <!-- Start: Last Name Field -->
+                <div class="pb-3">
+                    <label for="lastName" class="fw-bold">Last Name</label>
+                    <small *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
+                    <input type="text" class="form-control" formControlName="lastName">
+
+                    <!-- Start: Lastname Field Validation -->
+                    <div *ngIf="getControls['lastName'].touched && getControls['lastName'].errors || formSubmitted">
+                        <small *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']"
+                            class="text-danger">
+                            lastName is required.
+                        </small>
+                        <small *ngIf="getControls['lastName']?.errors?.['pattern'] " class="text-danger">
+                            Invalid Last Name.
+                        </small>
+                    </div>
+                    <!-- End: Lastname Field Validation -->
+                </div>
+                <!-- End: Last Name Field -->
+
+                <!-- Start: City Field -->
+                <div class="pb-3">
+                    <label for="city" class="fw-bold">City</label>
+                    <small *ngIf="getControls['city'].errors && getControls['city'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
+                    <input type="text" class="form-control" formControlName="city">
+
+                    <!-- Start: City Field Validation -->
+                    <div *ngIf="getControls['city'].touched && getControls['city'].errors || formSubmitted">
+                        <small *ngIf="getControls['city'].errors && getControls['city'].errors['required']"
+                            class="text-danger">
+                            city is required.
+                        </small>
+                    </div>
+                    <!-- End: City Field Validation -->
+                </div>
+                <!-- End: City Field -->
+
+                <!-- Start: Email Field -->
+                <div class="pb-3">
+                    <label for="email" class="fw-bold">Email</label>
+                    <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
+                    <input type="email" class="form-control" formControlName="email">
+
+                    <!-- Start: Email Field Validation -->
+                    <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
+                        <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
+                            class="text-danger">
+                            email is required.
+                        </small>
+                        <small *ngIf="getControls['email'].errors?.['pattern']" class="text-danger">
+                            enter proper email format.
+                        </small>
+                    </div>
+                    <!-- End: Email Field Validation -->
+                </div>
+                <!-- End: Email Field -->
+
+                <!-- Start: Password group -->
+                <div formGroupName="password">
+                    <!-- Start: Password Field -->
+                    <div class="pb-3 position-relative">
+                        <label for="password" class="fw-bold">Password</label>
+                        <small *ngIf="getControls['password'].get('password')?.errors?.['required']"
+                            class="text-danger fw-bold">
+                            *
+                        </small>
+                        <input [type]="passwordFieldsVisibility['password'] === 'close' ? 'password' : 'text'"
+                            formControlName="password" class="form-control" id="password" placeholder="Password">
+                        <span class="icon-eye eye-icon" *ngIf="getControls['password'].get('password')?.value?.length"
+                            (mousedown)="setPasswordVisibility('password', 'open')"
+                            (mouseup)="setPasswordVisibility('password', 'close')"
+                            (touchstart)="setPasswordVisibility('password', 'open')"
+                            (touchend)="setPasswordVisibility('password', 'close')">
+                        </span>
+                        <!-- Start: Password Field Validation -->
+                        <div
+                            *ngIf="(getControls['password'].get('password')?.touched || getControls['password'].get('password')?.dirty || formSubmitted)">
+                            <small *ngIf="getControls['password'].get('password')?.errors?.['required']"
+                                class="text-danger">
+                                password is required.
+                            </small>
+                            <small
+                                *ngIf="getControls['password'].get('password')?.errors?.['pattern'] || (getControls['password'].get('password')?.errors?.['minlength'] || getControls['password'].get('password')?.errors?.['maxlength'])"
+                                class="text-danger">
+                                password must be 8-12 characters long, 1 numeric character, 1 uppercase letter,
+                                1 lowercase letter, & 1 special character.
+                            </small>
+                        </div>
+                        <!-- End: Password Field Validation -->
+                    </div>
+                    <!-- End: Password Field -->
+
+                    <!-- Start: Confirm Password Field -->
+                    <div class="pb-3 position-relative">
+                        <label for="confirm-password" class="fw-bold">Confirm Password</label>
+                        <small *ngIf="getControls['password'].get('confirmPassword')?.errors?.['required']"
+                            class="text-danger fw-bold">
+                            *
+                        </small>
+                        <input [type]="passwordFieldsVisibility['confirmPassword'] === 'close' ? 'password' : 'text'"
+                            formControlName="confirmPassword" class="form-control" id="confirm-Password"
+                            placeholder="Confirm Password">
+                        <span class="icon-eye eye-icon"
+                            *ngIf="getControls['password'].get('confirmPassword')?.value?.length"
+                            (mousedown)="setPasswordVisibility('confirmPassword', 'open')"
+                            (mouseup)="setPasswordVisibility('confirmPassword', 'close')"
+                            (touchstart)="setPasswordVisibility('confirmPassword', 'open')"
+                            (touchend)="setPasswordVisibility('confirmPassword', 'close')">
+                        </span>
+                        <!-- Start: Confirm Password Field validations -->
+                        <div class="validation-text mt-1">
+                            <div
+                                *ngIf="(getControls['password'].get('confirmPassword')?.touched || getControls['password'].get('confirmPassword')?.dirty || formSubmitted)">
+                                <small *ngIf="getControls['password'].get('confirmPassword')?.errors?.['required']"
+                                    class="text-danger">
+                                    confirm password is required.
+                                </small>
+                                <small
+                                    *ngIf="!getControls['password'].get('confirmPassword')?.errors?.['required'] && getControls['password']?.errors?.['passwordsDoNotMatch']"
+                                    class="text-danger">
+                                    passwords did not match.
+                                </small>
+                            </div>
+                        </div>
+                        <!-- End: Confirm Password Field validations -->
+                    </div>
+                    <!-- End: Confirm Password Field -->
+                </div>
+                <!-- End: Password Group -->
+            </section>
+        </div>
+
+        <!-- Start: Save and Cancel Button -->
+        <div class="d-flex align-items-center justify-content-between justify-content-md-center mt-3">
+            <button type="button" class="btn btn-primary me-2 ps-4 pe-4 text-white" (click)="onSubmit()">Save</button>
+            <button type="button" class="btn btn-secondary" routerLink="/employee">Cancel</button>
+        </div>
+        <!-- End: Save and Cancel Button -->
+    </form>
+    <!-- End: User Form -->
+</div>
