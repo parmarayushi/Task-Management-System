@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
 import { Employees } from '../../employee.model';
 import { EmployeeListPresenterService } from '../employee-list-presenter/employee-list-presenter.service';
@@ -6,8 +6,8 @@ import { EmployeeListPresenterService } from '../employee-list-presenter/employe
 @Component({
   selector: 'app-employee-list-presentation',
   templateUrl: './employee-list-presentation.component.html',
-  viewProviders:[EmployeeListPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [EmployeeListPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeListPresentationComponent implements OnInit {
 
@@ -28,6 +28,8 @@ export class EmployeeListPresentationComponent implements OnInit {
   public get employeeList(): Employees[] {
     return this._employeeList;
   }
+
+  @Output() public delete: EventEmitter<number>;
 
   /**
   * @name onResize
@@ -51,6 +53,7 @@ export class EmployeeListPresentationComponent implements OnInit {
     this.isTableView = false;
     this.isCardView = false;
     this.searchText = "";
+    this.delete = new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -59,6 +62,15 @@ export class EmployeeListPresentationComponent implements OnInit {
     this.utilityService.searchData$.subscribe((res) => {
       this._employeeList = res
     })
+  }
+
+  /**
+  * @name onDelete
+  * @param id 
+  * @description deletes the on click.
+  */
+  public onDelete(id: number) {
+    this.delete.emit(id);
   }
 
   /**

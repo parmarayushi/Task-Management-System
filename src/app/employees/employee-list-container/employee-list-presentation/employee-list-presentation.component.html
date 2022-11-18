@@ -1,6 +1,6 @@
 <div class="wrapper h-100 d-flex flex-column overflow-hidden">
     <!-- Header -->
-    <h3 class="border-bottom border-primary pb-2">Employees List</h3>
+    <h2 class="border-bottom border-primary text-center pb-3 mb-0">Employees List</h2>
     <section class="wraapper-content rounded-3 bg-white shadow-sm p-3 mt-4 list-border overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
@@ -27,7 +27,7 @@
                             <td>{{items?.city}}</td>
                             <td class="text-center">
                                 <span class="icon-edit cursor-pointer pe-3" [routerLink]="['edit',items.id]"></span>
-                                <span class="icon-delete cursor-pointer pe-3" ></span>
+                                <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
                             </td>
                         </tr>
                         <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found
@@ -65,7 +65,7 @@
                                 <div class="card-title">
                                     <label for="action" class="pe-2 fw-bold">Action:</label>
                                     <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',items.id]"></span>
-                                    <span class="icon-delete cursor-pointer"></span>
+                                    <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
                                 </div>
                             </div>
                         </div>
