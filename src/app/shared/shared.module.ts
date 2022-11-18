@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     SearchPipe,
-    DeletePopupComponent
+    DeletePopupComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SearchPipe
+    SearchPipe,
+    PaginationComponent
   ]
 })
 export class SharedModule { }
