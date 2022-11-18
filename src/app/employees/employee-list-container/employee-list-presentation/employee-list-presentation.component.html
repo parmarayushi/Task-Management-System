@@ -19,8 +19,8 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="employeeList as result">
-                        <tr *ngFor="let items of employeeList ,let i=index">
+                    <tbody *ngIf="newEmployeeList as result">
+                        <tr *ngFor="let items of result ,let i=index">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td class="table-text text-truncate">{{items?.firstName +" "+ items?.lastName}}</td>
                             <td class="table-text text-truncate">{{items?.email}}</td>
@@ -35,8 +35,8 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <app-pagination [items]="userList" [itemsPerPage]="4" (changePage)="changePage($event)"
-                class="d-flex justify-content-center align-items-center mt-4"></app-pagination> -->
+            <app-pagination [items]="employeeList" [itemsPerPage]="4" (changePage)="changePage($event)"
+                class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
         </div>
 
         <div *ngIf="isCardView">

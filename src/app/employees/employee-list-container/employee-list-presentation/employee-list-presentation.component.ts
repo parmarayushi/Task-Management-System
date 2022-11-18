@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
 import { Employees } from '../../employee.model';
 import { EmployeeListPresenterService } from '../employee-list-presenter/employee-list-presenter.service';
@@ -17,6 +17,9 @@ export class EmployeeListPresentationComponent implements OnInit {
   */
   @Input() public set employeeList(value: Employees[] | null) {
     if (value) {
+      if (!this._newemployeeList) {
+        this._newemployeeList = value;
+      }
       this._employeeList = value;
     }
   }
@@ -46,13 +49,16 @@ export class EmployeeListPresentationComponent implements OnInit {
   public isCardView: boolean;
   public innerWidth: number;
   public searchText: string;
+  public newEmployeeList: Employees[];
 
   private _employeeList: Employees[];
+  private _newemployeeList: Employees[];
 
   constructor(
     private utilityService: UtilitiesService,
-    private employeePresenter:EmployeeListPresenterService
-    ) {
+    private employeePresenter: EmployeeListPresenterService,
+    private cdr: ChangeDetectorRef
+  ) {
     this.isTableView = false;
     this.isCardView = false;
     this.searchText = "";
@@ -62,7 +68,7 @@ export class EmployeeListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.onResize(event);
 
-    this.employeePresenter.deleteData$.subscribe((res)=>{
+    this.employeePresenter.deleteData$.subscribe((res) => {
       this.delete.emit(res);
     })
 
@@ -85,6 +91,11 @@ export class EmployeeListPresentationComponent implements OnInit {
   * @description searches data from the list.
   */
   public onSearch() {
-    this.utilityService.search(this._employeeList, this.searchText);
+    this.utilityService.search(this._newemployeeList, this.searchText);
+  }
+
+  public changePage(employeeList: Employees[]) {
+    this.newEmployeeList = employeeList;
+    this.cdr.detectChanges();
   }
 }
