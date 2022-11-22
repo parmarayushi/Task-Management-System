@@ -4,18 +4,18 @@
         <!-- Start: Email Input -->
         <div class="mb-3">
             <label class="form-label fs-4 fw-light">Email address</label>
-            <!-- <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
+            <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
                 class="text-danger fw-bold">
                 *
-            </small> -->
+            </small>
             <input type="email" class="form-control" formControlName="email">
             <!-- Start: Email Field Validation -->
-            <!-- <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
+            <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
                 <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
                     class="text-danger">
                     email is required.
                 </small>
-            </div> -->
+            </div>
             <!-- End: Email Field Validation -->
         </div>
         <!-- End: Email Input -->
@@ -23,18 +23,18 @@
         <!-- Start: Password Input -->
         <div class="mb-3">
             <label class="form-label fs-4 fw-light">Password</label>
-            <!-- <small *ngIf="getControls['password'].errors && getControls['password'].errors['required']"
+            <small *ngIf="getControls['password'].errors && getControls['password'].errors['required']"
                 class="text-danger fw-bold">
                 *
-            </small> -->
+            </small>
             <input type="password" class="form-control" formControlName="password">
             <!-- Start: Password Field Validation -->
-            <!-- <div *ngIf="getControls['password'].touched && getControls['password'].errors || formSubmitted">
+            <div *ngIf="getControls['password'].touched && getControls['password'].errors || formSubmitted">
                 <small *ngIf="getControls['password'].errors && getControls['password'].errors['required']"
                     class="text-danger">
                     password is required.
                 </small>
-            </div> -->
+            </div>
             <!-- End: Password Field Validation -->
         </div>
         <!-- End: Password Input -->

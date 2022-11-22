@@ -46,7 +46,7 @@ export class LoginPresentationComponent implements OnInit {
    * @name getControls
    * @returns controls of the loginform.
    */
-  public getControls() {
+  public get getControls() {
     return this.loginForm.controls;
   }
 
