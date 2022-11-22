@@ -14,7 +14,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    OverlayModule
+    OverlayModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
