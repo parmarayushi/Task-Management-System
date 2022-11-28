@@ -17,8 +17,8 @@ export class ProjectService {
   * @param data 
   * @returns Observable of type Projects.
   */
-  public addProject(data: Projects): Observable<Projects> {
-    return this._http.post<Projects>(`${this.apiLink}/project`, data);
+  public addProject(data: Projects): Observable<Projects[]> {
+    return this._http.post<Projects[]>(`${this.apiLink}/project`, data);
   }
 
   /**
@@ -26,8 +26,8 @@ export class ProjectService {
   * @param id 
   * @returns Observable of type Projects.
   */
-  public getProjectById(id: number): Observable<Projects> {
-    return this._http.get<Projects>(`${this.apiLink}/project/${id}`);
+  public getProjectById(id: number): Observable<Projects[]> {
+    return this._http.get<Projects[]>(`${this.apiLink}/project/${id}`);
   }
 
   /**
@@ -36,8 +36,8 @@ export class ProjectService {
   * @param form 
   * @returns Observable of type Projects.
   */
-  public editProject(id: number, form: Projects): Observable<Projects> {
-    return this._http.put<Projects>(`${this.apiLink}/project/${id}`, form);
+  public editProject(id: number, form: Projects): Observable<Projects[]> {
+    return this._http.put<Projects[]>(`${this.apiLink}/project/${id}`, form);
   }
 
   /**

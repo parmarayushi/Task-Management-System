@@ -1,1 +1,1 @@
-<app-project-form-presentation [teamMembers]="memberData$ | async" [projectData]="projectData$ | async"></app-project-form-presentation>
+<app-project-form-presentation [teamMembers]="memberData$ | async" [projectData]="projectData$ | async" (add)="addProjects($event)" (edit)="editProjects($event)"></app-project-form-presentation>

@@ -108,7 +108,29 @@
       "id": 11
     }
   ],
-  "project":[
-    
+  "project": [
+    {
+      "name": "dfsdf",
+      "status": "In Progress",
+      "startDate": "2022-11-25",
+      "dueDate": "2022-12-03",
+      "projectManager": "Binal Lad",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Viral"
+        },
+        {
+          "id": 3,
+          "firstName": "Mrunal"
+        }
+      ],
+      "description": "efsfdfdg",
+      "id": 1
+    }
   ]
 }

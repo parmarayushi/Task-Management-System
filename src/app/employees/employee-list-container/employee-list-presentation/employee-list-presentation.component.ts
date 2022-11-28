@@ -94,6 +94,11 @@ export class EmployeeListPresentationComponent implements OnInit {
     this.utilityService.search(this._newemployeeList, this.searchText);
   }
 
+  /**
+  * @name changePage
+  * @param projectList 
+  * @description changes the page of list in pagination.
+  */
   public changePage(employeeList: Employees[]) {
     this.newEmployeeList = employeeList;
     this.cdr.detectChanges();

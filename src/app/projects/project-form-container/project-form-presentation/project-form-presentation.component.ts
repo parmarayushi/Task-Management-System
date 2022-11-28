@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Employees } from 'src/app/employees/employee.model';
 import { Projects } from '../../project.model';
@@ -18,6 +18,8 @@ export class ProjectFormPresentationComponent implements OnInit {
   */
   @Input() public set projectData(value: Projects[] | null) {
     if (value) {
+      this.formTitle="Edit Project";
+      this.projectForm.patchValue(value);
       this._projectData = value;
     }
   }
@@ -48,6 +50,9 @@ export class ProjectFormPresentationComponent implements OnInit {
     return this._teamMembers;
   }
 
+  @Output() add: EventEmitter<Projects>;
+  @Output() edit: EventEmitter<Projects>;
+
   public projectForm: FormGroup;
   public formTitle: string;
   public formSubmitted: boolean;
@@ -66,6 +71,8 @@ export class ProjectFormPresentationComponent implements OnInit {
     this.successMsg = false;
     this.updateMsg = false;
     this.expanded = false;
+    this.add = new EventEmitter();
+    this.edit = new EventEmitter();
   }
 
   ngOnInit(): void {
@@ -81,6 +88,10 @@ export class ProjectFormPresentationComponent implements OnInit {
       showSelectedItemsAtTop: false,
       defaultOpen: false,
     }
+
+    this.projectFormPresenter.projectData$.subscribe((res) => {
+      this.formTitle === "New Project" ? this.add.emit(res) : this.edit.emit(res);
+    })
   }
 
   /**
@@ -89,5 +100,21 @@ export class ProjectFormPresentationComponent implements OnInit {
   */
   public get getControls() {
     return this.projectForm.controls;
+  }
+
+  /**
+  * @name onSubmit
+  * @description submits the form on click of button.
+  */
+  public onSubmit() {
+    this.formSubmitted = !this.projectForm.valid;
+    if (!this.formSubmitted) {
+      this.projectFormPresenter.submitForm(this.projectForm);
+      if (this.formTitle == "New Project") {
+        this.successMsg = true
+      } else {
+        this.updateMsg = true
+      }
+    }
   }
 }
