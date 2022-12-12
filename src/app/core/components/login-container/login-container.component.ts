@@ -10,9 +10,7 @@ import { User } from './login.model';
 export class LoginContainerComponent implements OnInit {
 
   public user$: Observable<User[]>
-  constructor(
-    private _authService: AuthService
-  ) {
+  constructor(private _authService: AuthService) {
     this.user$ = new Observable();
   }
 
