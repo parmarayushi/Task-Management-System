@@ -1,0 +1,194 @@
+<div class="wrapper h-100 overflow-hidden d-flex flex-column">
+    <!-- Header -->
+    <h3 class="border-bottom border-primary text-center pb-2">{{formTitle}}</h3>
+
+    <!-- Start: Task Form -->
+    <form class="rounded shadow-sm bg-white p-4 mt-3 mt-sm-4 form-width m-sm-auto overflow-auto" [formGroup]="taskForm">
+        <!-- Start: Success Message -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </symbol>
+        </svg>
+        <div class="alert alert-success d-flex align-items-center" *ngIf="successMsg">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            Task Added Successfully.
+        </div>
+        <div class="alert alert-success d-flex align-items-center" *ngIf="updateMsg">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            Task Updated Successfully.
+        </div>
+        <!-- End: Success Message -->
+
+        <section>
+            <!-- Start: Project Name Field -->
+            <div class="pb-3">
+                <label for="projectName" class="fw-bold">Project Name</label>
+                <small *ngIf="getControls['projectName'].errors && getControls['projectName'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <select id="projectName" class="form-select" formControlName="projectName">
+                    <option *ngFor="let projects of projectData" value="{{projects.name}}">
+                        {{projects.name}}
+                    </option>
+                </select>
+
+                <!-- Start: Project Name Field Validation -->
+                <div *ngIf="getControls['projectName'].touched && getControls['projectName'].errors || formSubmitted">
+                    <small *ngIf="getControls['projectName'].errors && getControls['projectName'].errors['required']"
+                        class="text-danger">
+                        projectName is required.
+                    </small>
+                </div>
+                <!-- End: Project Name Field Validation -->
+            </div>
+            <!-- End: Project Name Field -->
+
+            <!-- Start: Task Field -->
+            <div class="pb-3">
+                <label for="task" class="fw-bold">Task</label>
+                <small *ngIf="getControls['task'].errors && getControls['task'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <input type="text" class="form-control" formControlName="task">
+
+                <!-- Start: Task Field Validation -->
+                <div *ngIf="getControls['task'].touched && getControls['task'].errors || formSubmitted">
+                    <small *ngIf="getControls['task'].errors && getControls['task'].errors['required']"
+                        class="text-danger">
+                        task is required.
+                    </small>
+                </div>
+                <!-- End: Task Field Validation -->
+            </div>
+            <!-- End: Task Field -->
+
+            <!-- Start: Assign To Field -->
+            <div class="pb-3">
+                <label for="assignTo" class="fw-bold">Assign To</label>
+                <small *ngIf="getControls['assignTo'].errors && getControls['assignTo'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <select id="assignTo" class="form-select" formControlName="assignTo">
+                    <option *ngFor="let members of memberData" value="{{members.firstName +' '+ members.lastName}}">
+                        {{members.firstName +" "+ members.lastName}}
+                    </option>
+                </select>
+
+                <!-- Start: Assign To Field Validation -->
+                <div *ngIf="getControls['assignTo'].touched && getControls['assignTo'].errors || formSubmitted">
+                    <small *ngIf="getControls['assignTo'].errors && getControls['assignTo'].errors['required']"
+                        class="text-danger">
+                        assignTo is required.
+                    </small>
+                </div>
+                <!-- End: Assign To Field Validation -->
+            </div>
+            <!-- End: Assign To Field -->
+
+            <!-- Start: DueDate Field -->
+            <div class="pb-3">
+                <label for="dueDate" class="fw-bold">Due Date</label>
+                <small *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <input type="date" class="form-control" formControlName="dueDate">
+
+                <!-- Start: DueDate Field Valiadtion -->
+                <div *ngIf="getControls['dueDate'].touched && getControls['dueDate'].errors || formSubmitted">
+                    <small *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']"
+                        class="text-danger">
+                        dueDate is required.
+                    </small>
+                </div>
+                <!-- End: DueDate Field Valiadtion -->
+            </div>
+            <!-- End: DueDate Field -->
+
+            <!-- Start: Priority Field -->
+            <div class="pb-3">
+                <label for="priority" class="fw-bold">Priority</label>
+                <small *ngIf="getControls['priority'].errors && getControls['priority'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <select id="priority" class="form-select" formControlName="priority">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+
+                <!-- Start: Priority Field Validation -->
+                <div *ngIf="getControls['priority'].touched && getControls['priority'].errors || formSubmitted">
+                    <small *ngIf="getControls['priority'].errors && getControls['priority'].errors['required']"
+                        class="text-danger">
+                        priority is required.
+                    </small>
+                </div>
+                <!-- End: Priority Field Validation -->
+            </div>
+            <!-- End: Priority Field -->
+
+            <!-- Start: Status Field -->
+            <div class="pb-3">
+                <label for="status" class="fw-bold">Status</label>
+                <small *ngIf="getControls['status'].errors && getControls['status'].errors['required']"
+                    class="text-danger fw-bold">
+                    *
+                </small>
+                <select id="status" class="form-select" formControlName="status">
+                    <option>Pending</option>
+                    <option>In Progress</option>
+                    <option>Done</option>
+                </select>
+
+                <!-- Start: Status Field Validation -->
+                <div *ngIf="getControls['status'].touched && getControls['status'].errors || formSubmitted">
+                    <small *ngIf="getControls['status'].errors && getControls['status'].errors['required']"
+                        class="text-danger">
+                        status is required.
+                    </small>
+                </div>
+                <!-- End: Status Field Validation -->
+            </div>
+            <!-- End:  Status Field -->
+        </section>
+
+        <!-- Start: Description Field -->
+        <div class="col-12">
+            <label for="description" class="fw-bold">Description</label>
+            <small *ngIf="getControls['description'].errors && getControls['description'].errors['required']"
+                class="text-danger fw-bold">
+                *
+            </small>
+            <textarea class="form-control" formControlName="description"></textarea>
+
+            <!-- Start: Descsription Field Valiadtion -->
+            <div *ngIf="getControls['description'].touched && getControls['description'].errors || formSubmitted">
+                <small *ngIf="getControls['description'].errors && getControls['description'].errors['required']"
+                    class="text-danger">
+                    description is required.
+                </small>
+            </div>
+            <!-- End: Descsription Field Valiadtion -->
+        </div>
+        <!-- End: Description Field -->
+
+        <!-- Start: Submit and Cancel Button -->
+        <div class="d-flex align-items-center justify-content-between justify-content-md-center mt-3">
+            <button type="button" class="btn btn-primary me-2 ps-4 pe-4 text-white" (click)="onSubmit()">Save</button>
+            <button type="button" class="btn btn-secondary" routerLink="/task">Cancel</button>
+        </div>
+        <!-- End: Submit and Cancel Button -->
+    </form>
+    <!-- End: Task Form -->
+</div>
