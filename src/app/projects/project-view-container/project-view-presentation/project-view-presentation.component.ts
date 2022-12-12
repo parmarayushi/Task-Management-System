@@ -7,12 +7,20 @@ import { Projects } from '../../project.model';
 })
 export class ProjectViewPresentationComponent implements OnInit {
 
+  /**
+  * @name projectView
+  * @description sets the list of projectview.
+  */
   @Input() public set projectView(value: Projects | null) {
     if (value) {
       this._projectView = value
     }
   }
 
+  /**
+  * @name projectView
+  * @description gets the list of projectview.
+  */
   public get projectView(): Projects {
     return this._projectView;
   }
