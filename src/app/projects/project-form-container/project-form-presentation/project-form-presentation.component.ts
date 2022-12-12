@@ -59,7 +59,6 @@ export class ProjectFormPresentationComponent implements OnInit {
   public settings: {};
   public successMsg: boolean;
   public updateMsg: boolean;
-  public expanded: boolean;
 
   private _projectData: Projects;
   private _teamMembers: Employees[];
@@ -70,7 +69,6 @@ export class ProjectFormPresentationComponent implements OnInit {
     this.formSubmitted = false;
     this.successMsg = false;
     this.updateMsg = false;
-    this.expanded = false;
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
   }

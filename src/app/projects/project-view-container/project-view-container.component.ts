@@ -13,7 +13,10 @@ export class ProjectViewContainerComponent implements OnInit {
   private id: number;
 
   public projectView$: Observable<Projects>;
-  constructor(private projectService: ProjectService, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private projectService: ProjectService,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.projectView$ = new Observable();
   }
 
