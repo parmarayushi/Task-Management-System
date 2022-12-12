@@ -32,9 +32,7 @@ export class LoginPresentationComponent implements OnInit {
 
   private _user!: User[];
 
-  constructor(
-    public loginService: LoginPresenterService
-  ) {
+  constructor(public loginService: LoginPresenterService) {
     this.loginForm = this.loginService.buildForm();
     this.formSubmitted = false
   }
@@ -46,7 +44,7 @@ export class LoginPresentationComponent implements OnInit {
    * @name getControls
    * @returns controls of the loginform.
    */
-  public getControls() {
+  public get getControls() {
     return this.loginForm.controls;
   }
 
