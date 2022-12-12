@@ -19,11 +19,9 @@
     },
     {
       "firstName": "Pooja",
-      "lastName": "Maanvani",
+      "lastName": "Manvani",
       "city": "Valsad",
       "email": "pooja.manvani@gmail.com",
-      "password": "pooja@123",
-      "confirmPassword": "pooja@123",
       "id": 2
     },
     {
@@ -106,6 +104,31 @@
       "password": "pooja@123",
       "confirmPassword": "pooja@123",
       "id": 11
+    }
+  ],
+  "project": [
+    {
+      "name": "dfsdf",
+      "status": "In Progress",
+      "startDate": "2022-11-25",
+      "dueDate": "2022-12-03",
+      "projectManager": "Binal Lad",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Viral"
+        },
+        {
+          "id": 3,
+          "firstName": "Mrunal"
+        }
+      ],
+      "description": "efsfdfdg",
+      "id": 1
     }
   ]
 }

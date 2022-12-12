@@ -5,12 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
     SearchPipe,
     DeletePopupComponent,
-    PaginationComponent
+    PaginationComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +21,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     ReactiveFormsModule,
     HttpClientModule,
     SearchPipe,
-    PaginationComponent
+    PaginationComponent,
+    NgMultiSelectDropDownModule
   ]
 })
 export class SharedModule { }

@@ -1,35 +1,35 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
-import { Employees } from '../../employee.model';
-import { EmployeeListPresenterService } from '../employee-list-presenter/employee-list-presenter.service';
+import { Projects } from '../../project.model';
+import { ProjectListPresenterService } from '../project-list-presenter/project-list-presenter.service';
 
 @Component({
-  selector: 'app-employee-list-presentation',
-  templateUrl: './employee-list-presentation.component.html',
-  viewProviders: [EmployeeListPresenterService],
+  selector: 'app-project-list-presentation',
+  templateUrl: './project-list-presentation.component.html',
+  viewProviders: [ProjectListPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeListPresentationComponent implements OnInit {
+export class ProjectListPresentationComponent implements OnInit {
 
   /**
-  * @name employeeList
-  * @description sets the list of employees.
+  * @name projectList
+  * @description sets the list of projects.
   */
-  @Input() public set employeeList(value: Employees[] | null) {
+  @Input() public set projectList(value: Projects[] | null) {
     if (value) {
-      if (!this._newemployeeList) {
-        this._newemployeeList = value;
+      if (!this._newProjectList) {
+        this._newProjectList = value
       }
-      this._employeeList = value;
+      this._projectList = value;
     }
   }
 
   /**
-  * @name employeeList
-  * @description gets the list of employees.
+  * @name projectList
+  * @description gets the list of projects.
   */
-  public get employeeList(): Employees[] {
-    return this._employeeList;
+  public get projectList(): Projects[] {
+    return this._projectList;
   }
 
   @Output() public delete: EventEmitter<number>;
@@ -49,14 +49,14 @@ export class EmployeeListPresentationComponent implements OnInit {
   public isCardView: boolean;
   public innerWidth: number;
   public searchText: string;
-  public newEmployeeList: Employees[];
+  public newProjectList: Projects[];
 
-  private _employeeList: Employees[];
-  private _newemployeeList: Employees[];
+  private _projectList: Projects[];
+  private _newProjectList: Projects[];
 
   constructor(
     private utilityService: UtilitiesService,
-    private employeePresenter: EmployeeListPresenterService,
+    private projectPresenter: ProjectListPresenterService,
     private cdr: ChangeDetectorRef
   ) {
     this.isTableView = false;
@@ -68,12 +68,12 @@ export class EmployeeListPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.onResize(event);
 
-    this.employeePresenter.deleteData$.subscribe((res) => {
+    this.projectPresenter.deleteData$.subscribe((res) => {
       this.delete.emit(res);
     })
 
     this.utilityService.searchData$.subscribe((res) => {
-      this._employeeList = res
+      this._projectList = res
     })
   }
 
@@ -83,7 +83,7 @@ export class EmployeeListPresentationComponent implements OnInit {
   * @description deletes the on click.
   */
   public onDelete(id: number) {
-    this.employeePresenter.deletePopUp(id);
+    this.projectPresenter.deletePopUp(id);
   }
 
   /**
@@ -91,7 +91,7 @@ export class EmployeeListPresentationComponent implements OnInit {
   * @description searches data from the list.
   */
   public onSearch() {
-    this.utilityService.search(this._newemployeeList, this.searchText);
+    this.utilityService.search(this._newProjectList, this.searchText);
   }
 
   /**
@@ -99,8 +99,8 @@ export class EmployeeListPresentationComponent implements OnInit {
   * @param projectList 
   * @description changes the page of list in pagination.
   */
-  public changePage(employeeList: Employees[]) {
-    this.newEmployeeList = employeeList;
+  public changePage(projectList: Projects[]) {
+    this.newProjectList = projectList;
     this.cdr.detectChanges();
   }
 }
