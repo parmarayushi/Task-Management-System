@@ -19,11 +19,9 @@
     },
     {
       "firstName": "Pooja",
-      "lastName": "Maanvani",
+      "lastName": "Manvani",
       "city": "Valsad",
       "email": "pooja.manvani@gmail.com",
-      "password": "pooja@123",
-      "confirmPassword": "pooja@123",
       "id": 2
     },
     {

@@ -12,7 +12,7 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectFormContainerComponent implements OnInit {
 
-  public projectData$: Observable<Projects[]>;
+  public projectData$: Observable<Projects>;
   public memberData$: Observable<Employees[]>;
   public id: number;
   constructor(

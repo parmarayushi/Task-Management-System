@@ -16,7 +16,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   * @name projectData
   * @description sets the list of projects.
   */
-  @Input() public set projectData(value: Projects[] | null) {
+  @Input() public set projectData(value: Projects | null) {
     if (value) {
       this.formTitle="Edit Project";
       this.projectForm.patchValue(value);
@@ -28,7 +28,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   * @name projectData
   * @description gets the list of projects.
   */
-  public get projectData(): Projects[] {
+  public get projectData(): Projects {
     return this._projectData;
   }
 
@@ -61,7 +61,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   public updateMsg: boolean;
   public expanded: boolean;
 
-  private _projectData: Projects[];
+  private _projectData: Projects;
   private _teamMembers: Employees[];
 
   constructor(private projectFormPresenter: ProjectFormPresenterService) {

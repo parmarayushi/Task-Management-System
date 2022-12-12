@@ -26,8 +26,8 @@ export class ProjectService {
   * @param id 
   * @returns Observable of type Projects.
   */
-  public getProjectById(id: number): Observable<Projects[]> {
-    return this._http.get<Projects[]>(`${this.apiLink}/project/${id}`);
+  public getProjectById(id: number): Observable<Projects> {
+    return this._http.get<Projects>(`${this.apiLink}/project/${id}`);
   }
 
   /**
