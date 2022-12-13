@@ -7,8 +7,8 @@ import { Task } from '../../task.model';
 @Injectable()
 export class TaskFormPresenterService {
 
-  private taskFormData: Subject<Task[]>;
-  public taskFormData$: Observable<Task[]>;
+  private taskFormData: Subject<Task>;
+  public taskFormData$: Observable<Task>;
 
   constructor(private _fb: FormBuilder) {
     this.taskFormData = new Subject();

@@ -19,9 +19,11 @@
     },
     {
       "firstName": "Pooja",
-      "lastName": "Manvani",
+      "lastName": "Maanvani",
       "city": "Valsad",
       "email": "pooja.manvani@gmail.com",
+      "password": "pooja@123",
+      "confirmPassword": "pooja@123",
       "id": 2
     },
     {
@@ -104,34 +106,656 @@
       "password": "pooja@123",
       "confirmPassword": "pooja@123",
       "id": 11
+    },
+    {
+      "firstName": "Mrunal",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "mrunal.patel@gmail.com",
+      "password": "mrunal@123",
+      "confirmPassword": "mrunal@123",
+      "id": 12
+    },
+    {
+      "firstName": "Aayushi",
+      "lastName": "Parmar",
+      "city": "Valsad",
+      "email": "aayushi.parmar@gmail.com",
+      "password": "aayushi@123",
+      "confirmPassword": "aayushi@123",
+      "id": 13
     }
   ],
   "project": [
     {
-      "name": "dfsdf",
+      "name": "1 Talent",
+      "status": "Done",
+      "startDate": "2022-02-04",
+      "dueDate": "2022-05-11",
+      "projectManager": "Hiren Tandel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        }
+      ],
+      "description": "This  project is created by interns which are college students. ",
+      "id": 1
+    },
+    {
+      "name": "1 Medify",
       "status": "In Progress",
-      "startDate": "2022-11-25",
-      "dueDate": "2022-12-03",
-      "projectManager": "Binal Lad",
+      "startDate": "2022-04-13",
+      "dueDate": "2022-06-25",
+      "projectManager": "Ronak Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        },
+        {
+          "id": 7,
+          "firstName": "Aman"
+        },
+        {
+          "id": 9,
+          "firstName": "Abhishek"
+        }
+      ],
+      "description": "This project is created by all the interns of batch January, 2022.",
+      "id": 2
+    },
+    {
+      "name": "Task Management System",
+      "status": "In Progress",
+      "startDate": "2022-08-27",
+      "dueDate": "2022-11-24",
+      "projectManager": "Kevang Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 9,
+          "firstName": "Abhishek"
+        },
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        }
+      ],
+      "description": "Create a website using HTML, Bootstrap and Angular.",
+      "id": 3
+    },
+    {
+      "name": "1 Talent",
+      "status": "Done",
+      "startDate": "2022-02-04",
+      "dueDate": "2022-05-11",
+      "projectManager": "Hiren Tandel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        }
+      ],
+      "description": "This  project is created by interns which are college students. ",
+      "id": 4
+    },
+    {
+      "name": "1 Talent",
+      "status": "Done",
+      "startDate": "2022-02-04",
+      "dueDate": "2022-05-11",
+      "projectManager": "Hiren Tandel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        }
+      ],
+      "description": "This  project is created by interns which are college students. ",
+      "id": 5
+    },
+    {
+      "name": "1 Medify",
+      "status": "In Progress",
+      "startDate": "2022-04-13",
+      "dueDate": "2022-06-25",
+      "projectManager": "Ronak Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        },
+        {
+          "id": 7,
+          "firstName": "Aman"
+        },
+        {
+          "id": 9,
+          "firstName": "Abhishek"
+        }
+      ],
+      "description": "This project is created by all the interns of batch January, 2022.",
+      "id": 6
+    },
+    {
+      "name": "1 Talent",
+      "status": "Done",
+      "startDate": "2022-02-04",
+      "dueDate": "2022-05-11",
+      "projectManager": "Hiren Tandel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        }
+      ],
+      "description": "This  project is created by interns which are college students. ",
+      "id": 7
+    },
+    {
+      "name": "dsc",
+      "status": "Started",
+      "startDate": "2022-11-05",
+      "dueDate": "2022-11-14",
+      "projectManager": "Kevang Patel",
       "teamMembers": [
         {
           "id": 1,
           "firstName": "Jigar"
         },
         {
-          "id": 4,
-          "firstName": "Viral"
+          "id": 2,
+          "firstName": "Pooja"
         },
         {
           "id": 3,
           "firstName": "Mrunal"
+        },
+        {
+          "id": 4,
+          "firstName": "Viral"
         }
       ],
-      "description": "efsfdfdg",
-      "id": 1
+      "description": "dfsdfdf",
+      "id": 8
     }
   ],
-  "task":[
-    
+  "task": [
+    {
+      "projectName": "1 Medify",
+      "task": "Create Registration page of patient module",
+      "description": "create using html, css amd bootstrap.",
+      "assignTo": "Aayushi Parmar",
+      "priority": "Medium",
+      "dueDate": "2022-04-20",
+      "status": "Pending",
+      "id": 1
+    },
+    {
+      "projectName": "1 Medify",
+      "task": "Create  registartion page of doctor module",
+      "description": "create using bootstrap",
+      "assignTo": "Mrunal Patel",
+      "priority": "Medium",
+      "dueDate": "2022-05-06",
+      "status": "In Progress",
+      "id": 2
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Viral Patel",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 3
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Pending",
+      "id": 4
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 5
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 6
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 7
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 8
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 9
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 10
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 11
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 12
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 13
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 14
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 15
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 16
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 17
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 18
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 19
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 20
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 21
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 22
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 23
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 24
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 25
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 26
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 27
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 28
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 29
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 30
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 31
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 32
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 33
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 34
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 35
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 36
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 37
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 38
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 39
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
+      "dueDate": "2022-03-03",
+      "status": "Done",
+      "id": 40
+    }
   ]
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Task } from '../task.model';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-list-conatiner',
@@ -6,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListConatinerComponent implements OnInit {
 
-  constructor() { }
+  public taskData$: Observable<Task[]>;
 
-  ngOnInit(): void {
+  constructor(private taskService: TaskService) {
+    this.taskData$ = new Observable();
   }
 
+  ngOnInit(): void {
+    this.getTaskData();
+  }
+
+  /**
+  * @name getTaskData
+  * @description calls the method from taskService.
+  */
+  public getTaskData() {
+    this.taskData$ = this.taskService.getTask();
+  }
+
+  /**
+  * @name deleteTask
+  * @param id 
+  * @description calls the method from task service and subscribes it.
+  */
+  public deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe(() => {
+      alert("Task deleted Successfully");
+      this.getTaskData();
+    })
+  }
 }

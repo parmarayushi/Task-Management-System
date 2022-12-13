@@ -17,8 +17,10 @@ export class TaskFormPresentationComponent implements OnInit {
   * @name task
   * @description sets the list of tasks.
   */
-  @Input() public set taskData(value: Task[] | null) {
+  @Input() public set taskData(value: Task | null) {
     if (value) {
+      this.formTitle = "Edit Task";
+      this.taskForm.patchValue(value);
       this._taskData = value;
     }
   }
@@ -27,7 +29,7 @@ export class TaskFormPresentationComponent implements OnInit {
   * @name taskData
   * @description gets the list of tasks.
   */
-  public get taskData(): Task[] {
+  public get taskData(): Task {
     return this._taskData;
   }
 
@@ -67,7 +69,8 @@ export class TaskFormPresentationComponent implements OnInit {
     return this._projectData;
   }
 
-  @Output() public add: EventEmitter<Task[]>;
+  @Output() public add: EventEmitter<Task>;
+  @Output() public edit: EventEmitter<Task>;
 
   public taskForm: FormGroup;
   public formSubmitted: boolean;
@@ -75,7 +78,7 @@ export class TaskFormPresentationComponent implements OnInit {
   public successMsg: boolean;
   public updateMsg: boolean;
 
-  private _taskData: Task[];
+  private _taskData: Task;
   private _memberData: Employees[];
   private _projectData: Projects[];
 
@@ -86,11 +89,12 @@ export class TaskFormPresentationComponent implements OnInit {
     this.successMsg = false;
     this.updateMsg = false;
     this.add = new EventEmitter();
+    this.edit = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.taskFormPresenter.taskFormData$.subscribe((res) => {
-      this.add.emit(res);
+      this.formTitle === "New Task" ? this.add.emit(res) : this.edit.emit(res)
     })
   }
 
@@ -110,11 +114,11 @@ export class TaskFormPresentationComponent implements OnInit {
     this.formSubmitted = !this.taskForm.valid;
     if (!this.formSubmitted) {
       this.taskFormPresenter.submitForm(this.taskForm);
-      // if (this.formTitle == "New Task") {
-      //   this.successMsg = true
-      // } else {
-      //   this.updateMsg = true
-      // }
+      if (this.formTitle == "New Task") {
+        this.successMsg = true
+      } else {
+        this.updateMsg = true
+      }
     }
   }
 }
