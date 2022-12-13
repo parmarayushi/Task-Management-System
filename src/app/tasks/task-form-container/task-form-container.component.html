@@ -1,1 +1,1 @@
-<app-task-form-presentation [taskData]="taskData$ | async" [memberData]="memberData$ | async" [projectData]="projectData$ | async" ></app-task-form-presentation>
+<app-task-form-presentation [taskData]="taskData$ | async" [memberData]="memberData$ | async" [projectData]="projectData$ | async" (add)="addTask($event)" (edit)="editTask($event)"></app-task-form-presentation>

@@ -1,1 +1,109 @@
-<p>task-list-presentation works!</p>
+<div class="wrapper  h-100 d-flex flex-column overflow-hidden">
+    <!-- Header -->
+    <h2 class="border-bottom border-primary text-center pb-3 mb-0">Task List</h2>
+
+    <section class="wrapper-content rounded bg-white shadow-sm p-3 mt-4 overflow-auto">
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
+                [(ngModel)]="searchText" (ngModelChange)="onSearch()">
+            <button class="btn btn-primary text-white" routerLink="/task/add">+ Add Task</button>
+        </div>
+        <div class="table-wrapper overflow-hidden" *ngIf="isTableView">
+            <div class="overflow-auto border">
+                <table class="table table-bordered mb-0 w-100 position-relative">
+                    <thead class="thead">
+                        <tr class="table-header text-nowrap">
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Assign To</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col" class="text-center">Status</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="newTaskList as result">
+                        <tr *ngFor="let data of result , let i=index" class="align-middle text-nowrap">
+                            <th scope="row" class="text-center">{{i+1}}</th>
+                            <td class="fw-bold">{{data.projectName}}</td>
+                            <td class="d-flex flex-column">
+                                <div class="fw-bold">{{data.task}}</div>
+                                <div class="small fst-italic">{{data.description}}</div>
+                            </td>
+                            <td class="fw-bold">{{data.assignTo}}</td>
+                            <td class="fw-bold">{{data.dueDate | date:'MMM d, y'}}</td>
+                            <td class="fw-bold">{{data.priority}}</td>
+                            <td class=" text-center">
+                                <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
+                            'bg-info':data.status==='In Progress',
+                            'bg-success':data.status==='Done'}">{{data.status}}</div>
+                            </td>
+                            <td class="text-center">
+                                <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',data.id]"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
+                            </td>
+                        </tr>
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+            <app-pagination [items]="taskList" [itemsPerPage]="4" (changePage)="changePage($event)"
+                class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
+        </div>
+
+        <div *ngIf="isCardView">
+            <div *ngIf="(taskList | search:searchText) as result">
+                <div class="row g-3" *ngFor="let data of result, let i=index">
+                    <!-- Start:Task Card -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <div class="card-title d-flex">
+                                    <label for="id" class="pe-2 fw-bold">#:</label>
+                                    <div>{{i+1}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="name" class="pe-2 fw-bold text-nowrap">Project Name:</label>
+                                    <div class="text-truncate" [title]="data.projectName">{{data.projectName}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="startDate" class="pe-2 fw-bold">Task:</label>
+                                    <div class="text-truncate" [title]="data.task">{{data.task}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="dueDate" class="pe-2 fw-bold text-nowrap">Assign To:</label>
+                                    <div>{{data.assignTo}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="status" class="pe-2 fw-bold">Due Date:</label>
+                                    <div>{{data.dueDate | date:'MMM d, y'}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="id" class="pe-2 fw-bold">Priority:</label>
+                                    <div>{{data.priority}}</div>
+                                </div>
+                                <div class="card-title d-flex">
+                                    <label for="id" class="pe-2 fw-bold">Status:</label>
+                                    <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
+                            'bg-info':data.status==='In Progress',
+                            'bg-success':data.status==='Done'}">{{data.status}}</div>
+                                </div>
+                                <div class="card-title">
+                                    <label for="action" class="pe-2 fw-bold">Action:</label>
+                                    <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',data.id]"></span>
+                                    <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End: Task Card -->
+                </div>
+                <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found</div>
+            </div>
+        </div>
+
+        <div *ngIf="!taskList?.length && !searchText" class="fw-bold mt-3 text-nowrap">No Task Inserted</div>
+    </section>
+</div>

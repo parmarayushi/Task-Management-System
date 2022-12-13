@@ -1,1 +1,1 @@
-<p>task-list-conatiner works!</p>
+<app-task-list-presentation [taskList]="taskData$ | async" (delete)="deleteTask($event)"></app-task-list-presentation>
