@@ -1,7 +1,14 @@
 #menu {
     display: none;
 
+    &~.backdrop{
+        display: none;
+        @include position(absolute, 0, 0, 0, 0);
+    }
     &:checked {
+        ~.backdrop{
+            display: block;
+        }
         ~.sidebar {
             flex: 0 0 50px;
             width: 50px;
