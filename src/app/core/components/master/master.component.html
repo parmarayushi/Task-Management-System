@@ -1,5 +1,6 @@
 <div class="wrapper d-flex overflow-hidden h-100">
     <input type="checkbox" id="menu" [(ngModel)]="isSidebarOpen">
+    <label for="menu" class="position-absolute top-0 start-0 bottom-0 end-0"></label>
     <div class="sidebar isBooleanSidebar h-100">
         <app-sidebar (closeSidebar)="isSidebarOpen = false"></app-sidebar>
     </div>
@@ -14,4 +15,4 @@
            <router-outlet></router-outlet>
         </div>
     </div>
-</div>f
+</div>
